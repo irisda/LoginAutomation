@@ -10,7 +10,7 @@ class LoginPage {
      */
 
     get emailField() {
-        return $('#user_login')
+        return $('input[name="user[login]"]')
     }
 
     get passwordField() {
@@ -24,6 +24,23 @@ class LoginPage {
     get forgotPasswordBtn() {
         return $('a*=I forgot my password')
     }
+
+    get invalidEmailPaswordText() {
+        return $('span[data-testid="error-text"]')
+    }
+
+    get signUpbtn() {
+        return $('a*=Sign Up')
+    }
+
+    get pageLoginTitle() {
+        return $('h1*=Log in to Codecademy')
+    }
+
+    get requestPasswordResetBtn() {
+        return $('//button[text()="Request Password Reset"]')
+    }
+
     /**
      * a method to login using username and password
      */
@@ -43,6 +60,34 @@ class LoginPage {
         await this.logInBtn.waitForClickable({ timeout: 2000 })
         await this.logInBtn.click()
     }
+
+    async validateErrorMessage() {
+        await this.invalidEmailPaswordText.waitForDisplayed({ timeout: 9000 })
+        const invalidCredentialsMessage = await this.invalidEmailPaswordText.getText()
+        await expect(invalidCredentialsMessage).toBe('Invalid email or password')
+    }
+
+    async validateSignUpBtn() {
+        await this.signUpbtn.waitForDisplayed({ timeout: 2000 })
+    }
+
+    async validatePageTitle() {
+        await this.pageLoginTitle.waitForDisplayed({ timeout: 1000 })
+        const loginTitle = await this.pageLoginTitle.getText()
+        await expect(loginTitle).toBe('Log in to Codecademy')
+    }
+    async clickForgotPasswordBtn() {
+        await this.forgotPasswordBtn.waitForDisplayed({ timeout: 1000 })
+        await this.forgotPasswordBtn.click()
+
+    }
+
+
+
+
+
+
+
 
     /**
      * a method to open the wanted url

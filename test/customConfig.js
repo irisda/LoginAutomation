@@ -30,7 +30,10 @@ const env = getEnvironment(process.env.ENV ?? 'qa')
 const globalConfig = {
     baseURL: env.mainBaseUrl,
     correctEmail: 'irisi.damani02@gmail.com',
-    correctPassword: 'Testing@12345!'
+    correctPassword: 'Testing@12345!',
+    incorrectEmail: 'test@gmail.com',
+    incorrectPassword: '777777777'
+
 
 }
 
