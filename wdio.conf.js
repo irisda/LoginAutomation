@@ -27,7 +27,7 @@ export const config = {
     ],
     suites: {
         mainPage: ['./test/specs/navigateToEnvs.test.js'],
-        communicationPage: ['./test/specs/associate1/communication.test.js'],
+        loginPage: ['./test/specs/login.test.js'],
 
     },
     // Patterns to exclude.
