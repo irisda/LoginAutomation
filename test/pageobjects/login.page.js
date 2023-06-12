@@ -21,10 +21,6 @@ class LoginPage {
         return $('//button[text()="Log in"]')
     }
 
-    get forgotPasswordBtn() {
-        return $('a*=I forgot my password')
-    }
-
     get invalidEmailPaswordText() {
         return $('span[data-testid="error-text"]')
     }
@@ -37,8 +33,11 @@ class LoginPage {
         return $('h1*=Log in to Codecademy')
     }
 
-    get requestPasswordResetBtn() {
-        return $('//button[text()="Request Password Reset"]')
+    get openDropDown() {
+        return $('button[data-testid="avatar-dropdown-button"]')
+    }
+    get logOutBtn() {
+        return $('a[href="/sign_out"]')
     }
 
     /**
@@ -76,11 +75,7 @@ class LoginPage {
         const loginTitle = await this.pageLoginTitle.getText()
         await expect(loginTitle).toBe('Log in to Codecademy')
     }
-    async clickForgotPasswordBtn() {
-        await this.forgotPasswordBtn.waitForDisplayed({ timeout: 1000 })
-        await this.forgotPasswordBtn.click()
 
-    }
 
 
 
