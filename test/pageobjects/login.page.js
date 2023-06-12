@@ -6,17 +6,6 @@ class LoginPage {
     /**
      * define selectors using getter methods
      */
-    get inputUsername() {
-        return $('#username');
-    }
-
-    get inputPassword() {
-        return $('#password');
-    }
-
-    get btnSubmit() {
-        return $('button[type="submit"]');
-    }
 
     /**
      * a method to login using username and password

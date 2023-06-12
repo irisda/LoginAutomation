@@ -5,7 +5,7 @@ export const config = {
     // ====================
     // WebdriverIO supports running e2e tests as well as unit and component tests.
     runner: 'local',
-    
+
     //
     // ==================
     // Specify Test Files
@@ -25,6 +25,11 @@ export const config = {
     specs: [
         './test/specs/**/*.js'
     ],
+    suites: {
+        mainPage: ['./test/specs/navigateToEnvs.test.js'],
+        communicationPage: ['./test/specs/associate1/communication.test.js'],
+
+    },
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -86,7 +91,7 @@ export const config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    //baseUrl: 'http://localhost',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -103,7 +108,7 @@ export const config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     services: ['chromedriver'],
-    
+
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
@@ -126,7 +131,7 @@ export const config = {
     // see also: https://webdriver.io/docs/dot-reporter
     reporters: ['spec'],
 
-    
+
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/

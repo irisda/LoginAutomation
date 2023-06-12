@@ -4,9 +4,16 @@ import globalConfig from '../customConfig.js'
 
 
 describe('Validate Split Configuration', () => {
-    it('should open page with custom environments', async () => {
+
+    beforeEach(async () => {
         await LoginPage.open(globalConfig.baseURL)
+    })
+    it('should validate page title with custom environments', async () => {
         await PageContent.validatesPageUrls(globalConfig.baseURL)
+        await PageContent.validatePageTitle(process.env.ENV)
+
+    })
+    it('should validate page content with custom environments', async () => {
         await PageContent.validatePageContent(process.env.ENV)
     })
 })
