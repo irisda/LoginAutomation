@@ -28,7 +28,10 @@ function getEnvironment(BUILD_URL) {
 const env = getEnvironment(process.env.ENV ?? 'qa')
 
 const globalConfig = {
-    baseURL: env.mainBaseUrl
+    baseURL: env.mainBaseUrl,
+    correctEmail: 'irisi.damani02@gmail.com',
+    correctPassword: 'Testing@12345!'
+
 }
 
 export default globalConfig
